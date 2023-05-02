@@ -4,8 +4,7 @@
 //https://ithelp.ithome.com.tw/articles/10192739?sc=rss.qu
 //https://ithelp.ithome.com.tw/articles/10191666
 import Input from "../component/input";
-import Clock from "../component/clock";
-import { useState,useCallback, useReducer } from "react";
+import { useState,useCallback} from "react";
 import axios from 'axios';
 import {signIn} from 'next-auth/react';
 import { useRouter } from "next/router";
@@ -27,22 +26,18 @@ const Auth=()=>{
     //login function
     const login = useCallback(async () => {
         try {
-          var a=await signIn('credentials', {
-            email,
-            password,
-            callbackUrl: '/profiles'
-          });
-          if(!a?.ok){
-            throw a?.error
-          }
-          /*else{
-            router.push('/profiles');
-          }*/
-          console.log(a?.ok)
+            await signIn('credentials', {
+                email,
+                password,
+                redirect: false,
+                callbackUrl: '/'
+              });
+        
+              router.push('/profiles');
         } catch (error) {
           console.log(error);
         }
-      }, [email, password, router]);
+      }, [email, password]);
 
     //register function
     const register=useCallback(async ()=>{
