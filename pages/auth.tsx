@@ -26,12 +26,12 @@ const Auth=()=>{
     //login function
     const login = useCallback(async () => {
         try {
-            /*await signIn('credentials', {
+            await signIn('credentials', {
                 email,
                 password,
                 redirect: false,
                 callbackUrl: '/'
-              });*/
+              });
         
               router.push('/profiles');
         } catch (error) {
