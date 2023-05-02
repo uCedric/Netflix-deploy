@@ -37,7 +37,7 @@ const Auth=()=>{
         } catch (error) {
           console.log(error);
         }
-      }, [email, password]);
+      }, [email, password,router]);
 
     //register function
     const register=useCallback(async ()=>{
