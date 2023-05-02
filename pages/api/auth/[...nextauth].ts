@@ -32,7 +32,7 @@ export const authOptions : AuthOptions={
                 }
             },
             async authorize(credentials){
-                
+                console.log(credentials?.email)
                 if(!credentials?.email || !credentials?.password){
                     console.log("Email and password required")
                     throw new Error('Email and password required');
